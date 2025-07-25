@@ -22,7 +22,7 @@ import {
   Smartphone,
   Monitor
 } from 'lucide-react';
-import ngenLogo from './assets/ngenlogo.png';
+import ngenlogo from './assets/ngenlogo.png';  // all lowercase
 // React Icons
 import { SiHtml5, SiCss3, SiTypescript, SiNextdotjs, SiRedux, SiTailwindcss, SiFlutter, SiExpress, SiMysql, SiMongodb, SiFirebase, SiPostman, SiVite, SiNginx } from "react-icons/si";
 import { FaJs, FaReact, FaBootstrap, FaWordpress, FaPhp, FaLaravel, FaNodeJs, FaGitAlt, FaGithub, FaDocker } from "react-icons/fa";
@@ -179,7 +179,7 @@ const skills = [
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center justify-center w-full md:w-auto">
-              <img src={ngenLogo} alt="N.G.EN Logo" className="h-16 md:h-20 w-auto" />
+              <img src={ngenlogo} alt="N.G.EN Logo" className="h-16 md:h-20 w-auto" />
             </div>
             <div className="hidden md:flex space-x-8">
               <a href="#home" className="hover:text-cyan-400 transition-colors">Home</a>
@@ -469,7 +469,7 @@ const skills = [
       <footer className="py-8 bg-black/40">
         <div className="container mx-auto px-6 text-center">
           <div className="flex items-center justify-center space-x-3 mb-4">
-            <img src={ngenLogo} alt="N.G.EN Logo" className="h-8 w-auto" />
+            <img src={ngenlogo} alt="N.G.EN Logo" className="h-16 md:h-20 w-auto" />
             <span className="text-lg font-semibold teal-gradient">N.G.EN Software Engineering</span>
           </div>
           <p className="text-gray-400">© 2025 Nusayba Al-Qaziri. All rights reserved.</p>

@@ -22,7 +22,7 @@ import {
   Smartphone,
   Monitor
 } from 'lucide-react';
-import ngenLogo from './assets/ngen_logo.png';
+import ngenLogo from './assets/ngenlogo.png';
 // React Icons
 import { SiHtml5, SiCss3, SiTypescript, SiNextdotjs, SiRedux, SiTailwindcss, SiFlutter, SiExpress, SiMysql, SiMongodb, SiFirebase, SiPostman, SiVite, SiNginx } from "react-icons/si";
 import { FaJs, FaReact, FaBootstrap, FaWordpress, FaPhp, FaLaravel, FaNodeJs, FaGitAlt, FaGithub, FaDocker } from "react-icons/fa";
@@ -85,7 +85,7 @@ const App = () => {
     });
   };
 
-  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 const handleSubmit = async (e) => {
   e.preventDefault();

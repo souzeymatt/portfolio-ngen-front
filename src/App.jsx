@@ -85,30 +85,31 @@ const App = () => {
     });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-      
-      const result = await response.json();
-      
-      if (response.ok) {
-        alert(result.message);
-        setFormData({ name: '', email: '', message: '' });
-      } else {
-        alert(result.error || 'Failed to send message');
-      }
-    } catch (error) {
-      console.error('Error:', error);
-      alert('Failed to send message. Please try again later.');
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  try {
+    const response = await fetch(`${API_BASE_URL}/contact`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData),
+    });
+
+    const result = await response.json();
+
+    if (response.ok) {
+      alert(result.message);
+      setFormData({ name: '', email: '', message: '' });
+    } else {
+      alert(result.error || 'Failed to send message');
     }
-  };
+  } catch (error) {
+    console.error('Error:', error);
+    alert('Failed to send message. Please try again later.');
+  }
+};
+
 
 const skills = [
   { name: 'HTML5', icon: SiHtml5 },

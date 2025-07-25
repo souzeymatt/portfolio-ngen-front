@@ -16,20 +16,45 @@ import {
   Send,
   ChevronDown,
   Star,
-  Zap,
+
   Cpu,
   Server,
   Smartphone,
   Monitor
 } from 'lucide-react';
 import ngenLogo from './assets/ngen_logo.png';
+// React Icons
+import { SiHtml5, SiCss3, SiTypescript, SiNextdotjs, SiRedux, SiTailwindcss, SiFlutter, SiExpress, SiMysql, SiMongodb, SiFirebase, SiPostman, SiVite, SiNginx } from "react-icons/si";
+import { FaJs, FaReact, FaBootstrap, FaWordpress, FaPhp, FaLaravel, FaNodeJs, FaGitAlt, FaGithub, FaDocker } from "react-icons/fa";
+import { IoLogoPython } from "react-icons/io5";
+import { SiDjango, SiFlask } from "react-icons/si"; // valid Si exports
+import { MdSecurity } from "react-icons/md"; // used as JWT icon replacement
+import { AiOutlineApi } from "react-icons/ai"; // Replaces BiApi, which does not exist
+import { VscCode } from "react-icons/vsc"; // VS Code icon
 
 const App = () => {
   const [isVisible, setIsVisible] = useState({});
+  const [professionText, setProfessionText] = useState("");
+  const fullProfessionText = "_ Full Stack Developer & Software Engineer";
+
+  useEffect(() => {
+    let i = 0;
+    const typingInterval = setInterval(() => {
+      if (i < fullProfessionText.length) {
+        setProfessionText(prev => prev + fullProfessionText.charAt(i));
+        i++;
+      } else {
+        clearInterval(typingInterval);
+      }
+    }, 70); // Typing speed
+
+    return () => clearInterval(typingInterval);
+  }, []);
+
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
+    name: "",
+    email: "",
+    message: ""
   });
 
   useEffect(() => {
@@ -85,16 +110,39 @@ const App = () => {
     }
   };
 
-  const skills = [
-    { name: 'Python', icon: Code, level: 90 },
-    { name: 'JavaScript', icon: Code, level: 85 },
-    { name: 'React', icon: Globe, level: 80 },
-    { name: 'Node.js', icon: Server, level: 75 },
-    { name: 'Flask', icon: Database, level: 85 },
-    { name: 'C#', icon: Code, level: 70 },
-    { name: 'PHP', icon: Code, level: 75 },
-    { name: 'Laravel', icon: Globe, level: 70 }
-  ];
+const skills = [
+  { name: 'HTML5', icon: SiHtml5 },
+  { name: 'CSS3', icon: SiCss3 },
+  { name: 'JavaScript', icon: FaJs },
+  { name: 'TypeScript', icon: SiTypescript },
+  { name: 'React', icon: FaReact },
+  { name: 'Next.js', icon: SiNextdotjs },
+  { name: 'Tailwind CSS', icon: SiTailwindcss },
+  { name: 'Bootstrap', icon: FaBootstrap },
+  { name: 'Flutter', icon: SiFlutter },
+  { name: 'WordPress', icon: FaWordpress },
+  { name: 'PHP', icon: FaPhp },
+  { name: 'Laravel', icon: FaLaravel },
+  { name: 'Node.js', icon: FaNodeJs },
+  { name: 'Express.js', icon: SiExpress },
+  { name: 'Python', icon: IoLogoPython },
+  { name: 'Django', icon: SiDjango },
+  { name: 'Flask', icon: SiFlask },
+  { name: 'MySQL', icon: SiMysql },
+  { name: 'MongoDB', icon: SiMongodb },
+  { name: 'Firebase', icon: SiFirebase },
+  { name: 'JWT', icon: MdSecurity }, // JWT replaced with MdSecurity
+  { name: 'API', icon: AiOutlineApi }, // FIX: Replaced BiApi with AiOutlineApi
+  { name: 'Postman', icon: SiPostman },
+  { name: 'Git', icon: FaGitAlt },
+  { name: 'GitHub', icon: FaGithub },
+  { name: 'Docker', icon: FaDocker },
+  { name: 'VS Code', icon: VscCode },
+  { name: 'Vite', icon: SiVite },
+];
+
+
+
 
   const projects = [
     {
@@ -129,8 +177,8 @@ const App = () => {
       <nav className="fixed top-0 w-full z-50 glass-effect">
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
-              <img src={ngenLogo} alt="N.G.EN Logo" className="h-10 w-auto" />
+            <div className="flex items-center justify-center w-full md:w-auto">
+              <img src={ngenLogo} alt="N.G.EN Logo" className="h-16 md:h-20 w-auto" />
             </div>
             <div className="hidden md:flex space-x-8">
               <a href="#home" className="hover:text-cyan-400 transition-colors">Home</a>
@@ -152,7 +200,7 @@ const App = () => {
               <span className="teal-gradient">Nusayba</span>
             </h1>
             <h2 className="text-3xl md:text-4xl mb-8 text-gray-300">
-              Full Stack Developer & Software Engineer
+              {professionText}
             </h2>
             <p className="text-xl mb-12 text-gray-400 max-w-2xl mx-auto">
               Crafting innovative digital solutions with cutting-edge technologies
